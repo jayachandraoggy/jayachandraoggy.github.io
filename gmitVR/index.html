@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GMIT</title>
+    <meta name="description" content="GMIT">
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="set-image.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+	  
+		
+		
+        <img id="city" crossorigin="anonymous" src="51.jpg">
+        <img id="city-thumb" crossorigin="anonymous" src="51.jpg">
+		
+		<!--<img id="cubes" crossorigin="anonymous" src="6_3rd.jpg">
+        <img id="cubes-thumb" crossorigin="anonymous" src="6_3rd.jpg">
+        
+        <img id="sechelt" crossorigin="anonymous" src="26_3rd.jpg">
+		<img id="sechelt-thumb" crossorigin="anonymous" src="26_3rd.jpg">
+		
+		<img id="se" crossorigin="anonymous" src="98.jpg">
+		<img id="se-thumb" crossorigin="anonymous" src="98.jpg">
+		
+		<img id="se1" crossorigin="anonymous" src="27.jpg">
+		<img id="se1-thumb" crossorigin="anonymous" src="27.jpg">-->
+		
+		<img id="se10" crossorigin="anonymous" src="89.jpg">
+		<img id="se10-thumb" crossorigin="anonymous" src="c1.jpg">
+		
+		<img id="se11" crossorigin="anonymous" src="86.jpg">
+		<img id="se11-thumb" crossorigin="anonymous" src="c2.jpg">
+		
+		<img id="se12" crossorigin="anonymous" src="64.jpg">
+		<img id="se12-thumb" crossorigin="anonymous" src="cc3.jpg">
+		
+		<img id="se13" crossorigin="anonymous" src="47.jpg">
+		<img id="se13-thumb" crossorigin="anonymous" src="c4.jpg">
+		
+		<img id="se14" crossorigin="anonymous" src="7.jpg">
+		<img id="se14-thumb" crossorigin="anonymous" src="c5.jpg">
+		
+		<img id="se15" crossorigin="anonymous" src="26.jpg">
+		<img id="se15-thumb" crossorigin="anonymous" src="c6.jpg">
+		
+		<!--<img id="se16" crossorigin="anonymous" src="17.jpg">
+		<img id="se16-thumb" crossorigin="anonymous" src="17.jpg">-->
+		
+		<audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+
+        <!-- Image link template to be reused. -->
+        <script id="link" type="text/html">
+          <a-entity class="link"
+            geometry="primitive: plane; height: 1; width: 1"
+            material="shader: flat; src: ${thumb}"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            set-image="on: click; target: #image-360; src: ${src}"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>
+      </a-assets>
+
+      <!-- 360-degree image. -->
+      <a-sky id="image-360" radius="10" src="#city"></a-sky>
+      <!-- Image links. -->
+      <a-entity id="links" layout="type: grid; margin: 1.5" position="0 -1 -4">
+        <!--<a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
+        
+        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+		<a-entity template="src: #link" data-src="#se" data-thumb="#se-thumb"></a-entity>
+		<a-entity template="src: #link" data-src="#se1" data-thumb="#se1-thumb"></a-entity>
+		
+		<a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>-->
+		
+		<a-entity template="src: #link" data-src="#se10" data-thumb="#se10-thumb"></a-entity>
+		<a-entity template="src: #link" data-src="#se11" data-thumb="#se11-thumb"></a-entity>
+		<a-entity template="src: #link" data-src="#se12" data-thumb="#se12-thumb"></a-entity>
+		<a-entity template="src: #link" data-src="#se13" data-thumb="#se13-thumb"></a-entity>
+		<a-entity template="src: #link" data-src="#se14" data-thumb="#se14-thumb"></a-entity>
+		<a-entity template="src: #link" data-src="#se15" data-thumb="#se15-thumb"></a-entity>
+		<!--<a-entity template="src: #link" data-src="#se16" data-thumb="#se16-thumb"></a-entity>-->
+      </a-entity>
+
+      <!-- Camera + cursor. -->
+      <a-entity camera look-controls>
+        <a-cursor id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__1="_event: mouseenter; color: springgreen"
+          event-set__2="_event: mouseleave; color: black"
+          fuse="true"
+          raycaster="objects: .link"></a-cursor>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
